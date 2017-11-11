@@ -1,0 +1,35 @@
+{
+  "name": "geochat-server",
+  "version": "0.0.1",
+  "description": "Geolocation-based messaging and media content sharing platform",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cli": "node operations/cli/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/martinshaw/geochat-server.git"
+  },
+  "keywords": [
+    "chat",
+    "api",
+    "geolocation",
+    "geochat",
+    "server",
+    "rest",
+    "auth"
+  ],
+  "author": "thirdyearproject@martinshaw.co",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/martinshaw/geochat-server/issues"
+  },
+  "homepage": "https://github.com/martinshaw/geochat-server#readme",
+  "dependencies": {
+    "boxen": "^1.2.2",
+    "date-and-time": "^0.5.0",
+    "easy-table": "^1.1.0",
+    "vorpal": "^1.12.0"
+  }
+}
