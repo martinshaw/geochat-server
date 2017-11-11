@@ -30,6 +30,9 @@
     "boxen": "^1.2.2",
     "date-and-time": "^0.5.0",
     "easy-table": "^1.1.0",
-    "vorpal": "^1.12.0"
+    "vorpal": "^1.12.0",
+    "vorpal-grep": "^0.2.0",
+    "vorpal-less": "0.0.13",
+    "vorpal-repl": "^1.1.8"
   }
 }
