@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "cli": "node operations/cli/index.js"
+    "manager": "node operations/manager/index.js",
+    "db:up": "node operations/db/migration/migrate-up.js",
+    "db:down": "node operations/db/migration/migrate-down.js",
+    "demo": "node operations/demo/index.js"
   },
   "repository": {
     "type": "git",
