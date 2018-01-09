@@ -2,7 +2,7 @@
   "name": "geochat-server",
   "version": "0.0.1",
   "description": "Geolocation-based messaging and media content sharing platform",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "manager": "node operations/manager/index.js",
@@ -30,12 +30,15 @@
   },
   "homepage": "https://github.com/martinshaw/geochat-server#readme",
   "dependencies": {
-    "boxen": "^1.2.2",
-    "date-and-time": "^0.5.0",
-    "easy-table": "^1.1.0",
-    "vorpal": "^1.12.0",
-    "vorpal-grep": "^0.2.0",
-    "vorpal-less": "0.0.13",
-    "vorpal-repl": "^1.1.8"
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "mongoose": "^4.13.6",
+    "process-env": "^1.1.0",
+    "sharp": "^0.18.4",
+    "tilestrata": "^2.1.2",
+    "tilestrata-dependency": "^0.5.1",
+    "tilestrata-disk": "^0.5.0",
+    "tilestrata-mapnik": "^0.4.1",
+    "tilestrata-sharp": "^1.0.0"
   }
 }
