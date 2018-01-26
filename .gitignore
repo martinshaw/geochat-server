@@ -57,3 +57,6 @@ typings/
 # dotenv environment variables file
 .env
 
+
+# Hide GeoChat Server Config File (which now contains DB creds., etc...)
+config.env
