@@ -8,7 +8,8 @@
     "manager": "node operations/manager/server.js",
     "db:up": "node operations/db/migration/migrate-up.js",
     "db:down": "node operations/db/migration/migrate-down.js",
-    "demo": "node operations/demo/index.js"
+    "demo": "node operations/demo/index.js",
+    "apiservice": "node operations/apiservice/index.js"
   },
   "repository": {
     "type": "git",
@@ -32,7 +33,7 @@
   "dependencies": {
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
-    "mongoose": "^4.13.6",
+    "mysql": "^2.15.0",
     "process-env": "^1.1.0",
     "sharp": "^0.18.4"
   }

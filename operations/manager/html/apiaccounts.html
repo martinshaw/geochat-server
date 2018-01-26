@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+	<head>
+		<title>API Accounts - GeoChat Manager</title>
+
+		<link href='/css/normalize.css' rel='stylesheet' type='text/css' />
+		<script src="/js/jquery.js"></script>
+
+		<link rel="stylesheet" href="/vendors/Semantic-UI/dist/semantic.min.css">
+		<script src="/vendors/Semantic-UI/dist/semantic.min.js"></script>
+
+		<link rel="stylesheet" href="css/global.css">
+		<link rel="stylesheet" href="css/page/apiaccounts.css">
+
+		<script src="js/global.js"></script>
+		<script src="js/page/apiaccounts.js"></script>
+
+
+	</head>
+	<body>
+
+		<div class="ui menu">
+			<a href="/index.html">
+				<div class="header item">
+					<img src="/img/logo.png" alt="">
+					&nbsp;
+					GeoChat Server Manager
+				</div>
+			</a>
+			<a class="item" href="/index.html">Link</a>
+			<a class="item" href="globe.html">Globe View</a>
+			<div class="ui dropdown item">
+				Manage...
+				<i class="dropdown icon"></i>
+				<div class="menu">
+					<div class=" active item">API Accounts</div>
+					<div class="item">Another Action</div>
+					<div class="divider"></div>
+					<div class="item">Separated Link</div>
+					<div class="divider"></div>
+					<div class="item" href="">QR Code Generator</div>
+				</div>
+			</div>
+			<div class="ui dropdown item">
+				Tools
+				<i class="dropdown icon"></i>
+				<div class="menu">
+					<div class="item">Action</div>
+					<div class="item">Another Action</div>
+					<div class="divider"></div>
+					<div class="item">Separated Link</div>
+					<div class="divider"></div>
+					<div class="item" href="">QR Code Generator</div>
+				</div>
+			</div>
+			<div class="right menu">
+				<div class="item">
+					<div class="ui action left icon input">
+						<i class="search icon"></i>
+						<input type="text" placeholder="Search">
+						<button class="ui button">Search All</button>
+					</div>
+				</div>
+				<a class="item" href="/signout.html">Sign Out</a>
+			</div>
+		</div>
+
+
+		
+		<div class="apiaccounts-seg">
+
+			<div class="ui grid">
+
+				<div class="seven wide column">
+
+					<h3 class="ui top attached header">Create new API account form:</h3>
+
+					<div class="ui attached  padded raised segment">
+
+						<form class="ui form">
+
+  							<div class="equal width fields">
+								<div class="field">
+									<label>User First Name</label>
+									<input name="user-first-name" placeholder="John / Jane" type="text">
+								</div>
+								<div class="field">
+									<label>User Last Name</label>
+									<input name="user-last-name" placeholder="Smith" type="text">
+								</div>
+							</div>
+
+							<div class="field">
+								<label>Account Name</label>
+								<input name="account-name" placeholder="GeoChat Android App" type="text">
+							</div>
+
+							<!-- <div class="field">
+								<label>Permissions</label>
+							</div>
+  							<div class="equal width fields">
+								<div class="field">
+									<div class="ui checkbox">
+										<input tabindex="0" class="" type="checkbox">
+										<label>Get: User Profile</label>
+									</div>
+								</div>
+								<div class="field">
+									<div class="ui checkbox">
+										<input tabindex="0" class="" type="checkbox">
+										<label>Put: Messages</label>
+									</div>
+								</div>
+								<div class="field">
+									<div class="ui checkbox">
+										<input tabindex="0" class="" type="checkbox">
+										<label>Get: Messages</label>
+									</div>
+								</div>
+							</div>
+  							<div class="equal width fields">
+								<div class="field">
+									<div class="ui checkbox">
+										<input tabindex="0" class="" type="checkbox">
+										<label>Get: User Profile</label>
+									</div>
+								</div>
+							</div> -->
+
+							<button class="ui button primary" type="submit">Submit</button>
+						</form>
+
+					</div>
+
+				</div>
+
+
+
+				<div class="nine wide column">
+
+					<h3 class="ui top attached header">Existing API accounts table:</h3>
+
+					<div class="ui attached raised segment">
+					
+						<table class="ui compact celled definition table">
+							<thead>
+								<tr>
+									<th></th>
+									<th>User's Name</th>
+									<th>API Account Name</th>
+									<th>API Key</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td class="collapsing">
+										<div class="ui fitted slider checkbox">
+											<input type="checkbox"> <label></label>
+										</div>
+									</td>
+									<td>John Lilki</td>
+									<td>September 14, 2013</td>
+									<td>JF84H9312EID92F9H2934</td>
+								</tr>
+								<tr>
+									<td class="collapsing">
+										<div class="ui fitted slider checkbox">
+											<input type="checkbox"> <label></label>
+										</div>
+									</td>
+									<td>Jamie Harington</td>
+									<td>January 11, 2014</td>
+									<td>JF84H9312EID92F9H2934</td>
+								</tr>
+								<tr>
+									<td class="collapsing">
+										<div class="ui fitted slider checkbox">
+											<input type="checkbox"> <label></label>
+										</div>
+									</td>
+									<td>Jill Lewis</td>
+									<td>May 11, 2014</td>
+									<td>JF84H9312EID92F9H2934</td>
+								</tr>
+							</tbody>
+							<tfoot class="full-width">
+								<tr>
+									<th></th>
+									<th colspan="4">
+										<div class="ui right floated small primary labeled icon button">
+											<i class="user icon"></i> Add User
+										</div>
+										<div class="ui small button">
+											Approve
+										</div>
+										<div class="ui small  disabled button">
+											Approve All
+										</div>
+									</th>
+								</tr>
+							</tfoot>
+						</table>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+
+				
+	</body>
+</html>

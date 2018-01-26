@@ -17,3 +17,7 @@ body{
 	-webkit-transition: opacity 1500ms 500ms;
 	transition: opacity 1500ms 500ms;
 }
+
+.primary{
+	background: #26B39F !important;
+}
