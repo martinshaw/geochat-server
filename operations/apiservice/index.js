@@ -1,41 +1,38 @@
-// Setup path resolution for Module requirements
-const path = require("path");
-// Create path resolution helper function
-var p = (file) => { return path.resolve(process.cwd(), file); };
-
-//
+// Require Node.js modules
+const env = require("process-env");
 const express = require('express');
 const bodyParser = require('body-parser');
+
+// Specify configuration file
+env.load('config.env');
+var _port = env.get("APISERVICE_PORT")
+
 
 /*
   The module which provides the URL and HTTP request method based routes
   which are used by the REST API express server
  */
-const GCApiServiceRouter = require( p("operations/apiservice/routes.js") );
-
-// Create object returned when module is required by another script
-var GCApiService = {};
+const router = require("./routes.js");
 
 
+// Create Express Server
+var app = express();
 
-GCApiService.init = (_port) => {
 
-	GCApiService.app = express();
+// JSON formatting in response
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
-	GCApiService.app.use(bodyParser.urlencoded({ extended: true }));
-	GCApiService.app.use(bodyParser.json());
 
-	GCApiService.app.use('/api', GCApiServiceRouter);
+// Routers
+app.use('/api/v0.1', router);
 
-	GCApiService.app.listen(_port);
+
+// Start Express server listening on port, and display router routes.
+var server = app.listen(_port, () => {
+
+	require('./utils/displayRoutesTable.js')('/api/v0.1', router.stack);
 	
-	console.log('GC API Service is available on port ' + _port);
+});
 
-
-}
-
-
-
-
-
-module.exports = GCApiService;
+console.log('GC API Service is available on port ' + _port);

@@ -1,10 +1,5 @@
-// Setup path resolution for Module requirements
-const path = require("path");
-// Create path resolution helper function
-var p = (file) => { return path.resolve(process.cwd(), file); };
-
 // Require functions for formating consistant JSON responses
-const resFormat = require( p("operations/apiservice/formatting.js") );
+const resFormat = require("../utils/formatting.js");
 
 //
 module.exports = {

@@ -5,10 +5,10 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "manager": "node operations/manager/server.js",
     "db:up": "node operations/db/migration/migrate-up.js",
     "db:down": "node operations/db/migration/migrate-down.js",
     "demo": "node operations/demo/index.js",
+    "manager": "node operations/manager/server.js",
     "apiservice": "node operations/apiservice/index.js"
   },
   "repository": {
@@ -32,6 +32,7 @@
   "homepage": "https://github.com/martinshaw/geochat-server#readme",
   "dependencies": {
     "body-parser": "^1.18.2",
+    "cli-table": "^0.3.1",
     "express": "^4.16.2",
     "mysql": "^2.15.0",
     "process-env": "^1.1.0",

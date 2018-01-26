@@ -1,19 +1,14 @@
-// Setup path resolution for Module requirements
-const path = require("path");
-// Create path resolution helper function
-var p = (file) => { return path.resolve(process.cwd(), file); };
-
-//
+// Require Node.js modules
 const express = require('express');
 
 // Require set of Controller functions
-const welcomeController = require( p("operations/apiservice/controllers/welcome.js") );
+const welcomeController = require("./controllers/welcome.js");
 
-//
-var GCApiServiceRouter = express.Router();
+// Create Express Router
+var router = express.Router();
 
-//
-GCApiServiceRouter.get('/', welcomeController.get);
+// Define Express routes
+router.get('/', welcomeController.get);
 
 
-module.exports = GCApiServiceRouter;
+module.exports = router;
