@@ -3,7 +3,7 @@ const resFormat = require("../utils/formatting.js");
 
 //
 module.exports = {
-	get: (req, res) => {
-  		res.json(resFormat.statusOk({ message: '123' }));  
+	signin: (req, res) => {
+  		res.json(resFormat.statusOk({ user: '123' }));  
 	}
 }
