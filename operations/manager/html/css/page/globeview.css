@@ -1,0 +1,8 @@
+.earth-seg{
+	background: url(http://www.27stars.co.uk/assets/video/stars.jpg) #000 !important;
+}
+
+.cesium-credit-imageContainer, .cesium-credit-textContainer{
+	display: none;
+	opacity: 0;
+}

@@ -1,0 +1,19 @@
+@import url('https://rsms.me/inter/inter-ui.css');
+
+body:not(.ready){
+	opacity: 0;	
+}
+
+*:not(i){
+	font-family: 'Inter UI', sans-serif !important;
+}
+
+body{
+	padding: 1em;
+
+	background: #eee;
+
+	/* avoid white flash on load*/
+	-webkit-transition: opacity 1500ms 500ms;
+	transition: opacity 1500ms 500ms;
+}
