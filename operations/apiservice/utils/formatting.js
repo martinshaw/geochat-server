@@ -2,15 +2,15 @@
 module.exports = {
 	statusOk: (jsonObject) => {
 		return {
-			"status": "ok",
+			"status": 200,
+			"error_msg": null,
 			"data": jsonObject
 		}
 	},
-	statusError: (errorMessage, jsonObject) => {
+	statusError: (statusCode, errorMessage) => {
 		return {
-			"status": "error",
-			"error_msg": errorMessage,
-			"data": jsonObject
+			"status": statusCode,
+			"error_msg": errorMessage
 		}
 	}
 

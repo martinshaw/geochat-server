@@ -15,6 +15,7 @@ var _port = env.get("APISERVICE_PORT")
  */
 const welcomeRouter = require("./routers/welcome.js");
 const authRouter = require("./routers/auth.js");
+const usersRouter = require("./routers/users.js");
 
 
 // Create Express Server
@@ -34,14 +35,17 @@ app.use(function(req, res, next){
 });
 
 
-// JSON formatting in response
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+// JSON formatting in Request Body
+// app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(bodyParser.json());
+
+app.use(bodyParser.urlencoded({ extended: false }))
 
 
 // Routers
 app.use('/api/v0.1', welcomeRouter);
 app.use('/api/v0.1/auth', authRouter);
+app.use('/api/v0.1/users', usersRouter);
 
 
 // Start Express server listening on port, and display router routes.
@@ -49,6 +53,7 @@ var server = app.listen(_port, () => {
 
 	require('./utils/displayRoutesTable.js')('/api/v0.1', welcomeRouter.stack);
 	require('./utils/displayRoutesTable.js')('/api/v0.1/auth', authRouter.stack);
+	require('./utils/displayRoutesTable.js')('/api/v0.1/users', usersRouter.stack);
 	
 });
 
