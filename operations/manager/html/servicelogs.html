@@ -25,14 +25,16 @@
 					GeoChat Server Manager
 				</div>
 			</a>
-			<a class="item" href="/index.html">Link</a>
+			<a class="active item" href="/index.html">Server Overview</a>
 			<a class="item" href="globe.html">Globe View</a>
 			<div class="ui dropdown item">
 				Manage...
 				<i class="dropdown icon"></i>
 				<div class="menu">
-					<div class=" active item">API Accounts</div>
-					<div class="item">Another Action</div>
+					<a href="apiaccounts.html">
+						<div class="item">API Accounts</div>
+					</a>
+					<a href="servicelogs.html"><div class="item">Service Logs</div></a>
 					<div class="divider"></div>
 					<div class="item">Separated Link</div>
 					<div class="divider"></div>
@@ -64,6 +66,41 @@
 		</div>
 
 
+		<style>
+			
+			#console_log{
+				padding: 0;
+				margin: 0;
+				height: calc(700px);
+				width: 100%;
+
+				overflow-y:scroll;
+				list-style-type: none;
+			}
+			#console_log li{
+				padding: 15px 6px;
+				margin-right: 20px;
+				border-bottom: 1px solid #ccc;
+			}
+			
+			#errors_log{
+				padding: 0;
+				margin: 0;
+				height: calc(700px);
+				width: 100%;
+
+				overflow-y:scroll;
+				list-style-type: none;
+			}
+			#errors_log li{
+				padding: 15px 6px;
+				margin-right: 20px;
+				border-bottom: 1px solid #ccc;
+			}
+
+
+		</style>
+
 		
 		<div class="apiaccounts-seg">
 
@@ -71,14 +108,14 @@
 
 				<div class="eight wide column">
 
-					<h3 class="ui top  attached header">Service Console Log:</h3>
+					<h3 class="ui top  attached header">Service Console Log: <small style="float: right;"><input type="checkbox" id="console_scroll" checked> Auto-scroll &nbsp; - &nbsp; <button class="red ui button mini" id="console_clear">Clear Console Log!</button></small></h3>
 
 					<div class="ui attached yellow padded raised segment">
 
 						<form class="ui form">
 
 							<div class="field">
-								<textarea id="console_log" rows="30"></textarea>
+								<ul id="console_log"></ul>
 							</div>
 
 						</form>
@@ -90,14 +127,14 @@
 
 				<div class="eight wide column">
 
-					<h3 class="ui top  attached header">Service Errors Log:</h3>
+					<h3 class="ui top  attached header">Service Errors Log: <small style="float: right;"><input type="checkbox" id="errors_scroll" checked> Auto-scroll &nbsp; - &nbsp; <button class="red ui button mini" id="errors_clear">Clear Errors Log!</button></small></h3>
 
 					<div class="ui attached red padded raised segment">
 
 						<form class="ui form">
 
 							<div class="field">
-								<textarea id="errors_log" rows="30"></textarea>
+								<ul id="errors_log"></ul>
 							</div>
 							
 						</form>

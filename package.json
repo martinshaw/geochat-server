@@ -5,11 +5,15 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "db:up": "node operations/db/migration/migrate-up.js",
-    "db:down": "node operations/db/migration/migrate-down.js",
+    "db_up": "node operations/db/migration/migrate-up.js",
+    "db_down": "node operations/db/migration/migrate-down.js",
     "demo": "node operations/demo/index.js",
     "manager": "node operations/manager/server.js",
-    "apiservice": "node operations/apiservice/index.js"
+    "dev:manager": "./node_modules/.bin/nodemon -V -e js ./operations/manager/server.js",
+    "dev:inspect:manager": "INSPECTOR_HOST=$(cat config.env | grep INSPECTOR_HOST | awk -F'=' '{print $2}'); ./node_modules/.bin/nodemon -V -e js --inspect=$INSPECTOR_HOST:9228 ./operations/manager/server.js",
+    "apiservice": "node operations/apiservice/server.js", 
+    "dev:apiservice": "./node_modules/.bin/nodemon -V -e js ./operations/apiservice/server.js",
+    "dev:inspect:apiservice": "INSPECTOR_HOST=$(cat config.env | grep INSPECTOR_HOST | awk -F'=' '{print $2}'); ./node_modules/.bin/nodemon -V -e js --inspect=$INSPECTOR_HOST:9229 ./operations/apiservice/server.js"
   },
   "repository": {
     "type": "git",
