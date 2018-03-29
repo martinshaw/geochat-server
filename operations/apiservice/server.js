@@ -4,6 +4,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mysql = require("mysql");
 const l = require("./utils/logging.js");
+const serverStatus = require('express-server-status');
 
 
 
@@ -22,6 +23,9 @@ const authRouter = global.authRouter = require("./routers/auth.js");
 const usersRouter = global.usersRouter = require("./routers/users.js");
 const sessionsRouter = global.sessionsRouter = require("./routers/sessions.js");
 
+// Require set of Before/After middleware filters
+const filters = require("./controllers/filters.js");
+
 
 
 // Create Express Server
@@ -30,16 +34,28 @@ var app = global.app = express();
 
 
 //Database connection
-app.use(function(req, res, next){
-	global.connection = mysql.createConnection({
-		host     : env.get("DB_HOST"),
-		user     : env.get("DB_USERNAME"),
-		password : env.get("DB_PASSWORD"),
-		database : env.get("DB_DATABASE")
-	});
-	connection.connect();
-	next();
+
+//	DEPRECIATED: DO NOT CONNECT ON EACH REQUEST
+// app.use(function(req, res, next){
+// 	global.connection = mysql.createConnection({
+// 		host     : env.get("DB_HOST"),
+// 		user     : env.get("DB_USERNAME"),
+// 		password : env.get("DB_PASSWORD"),
+// 		database : env.get("DB_DATABASE")
+// 	});
+// 	connection.connect();
+// 	next();
+// });
+
+// 	NOW: CONNECT ON EACH SERVER START
+
+global.connection = mysql.createConnection({
+	host     : env.get("DB_HOST"),
+	user     : env.get("DB_USERNAME"),
+	password : env.get("DB_PASSWORD"),
+	database : env.get("DB_DATABASE")
 });
+connection.connect();
 
 
 
@@ -49,6 +65,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 
 // Express Server Status
+app.use('/status', filters.requiresSessionKey, serverStatus(app));
 
 
 

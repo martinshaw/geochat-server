@@ -11,7 +11,7 @@
     "manager": "node operations/manager/server.js",
     "dev:manager": "./node_modules/.bin/nodemon -V -e js ./operations/manager/server.js",
     "dev:inspect:manager": "INSPECTOR_HOST=$(cat config.env | grep INSPECTOR_HOST | awk -F'=' '{print $2}'); ./node_modules/.bin/nodemon -V -e js --inspect=$INSPECTOR_HOST:9228 ./operations/manager/server.js",
-    "apiservice": "node operations/apiservice/server.js", 
+    "apiservice": "node operations/apiservice/server.js",
     "dev:apiservice": "./node_modules/.bin/nodemon -V -e js ./operations/apiservice/server.js",
     "dev:inspect:apiservice": "INSPECTOR_HOST=$(cat config.env | grep INSPECTOR_HOST | awk -F'=' '{print $2}'); ./node_modules/.bin/nodemon -V -e js --inspect=$INSPECTOR_HOST:9229 ./operations/apiservice/server.js"
   },
@@ -39,6 +39,7 @@
     "body-parser": "^1.18.2",
     "cli-table": "^0.3.1",
     "express": "^4.16.2",
+    "express-server-status": "^1.0.3",
     "mysql": "^2.15.0",
     "process-env": "^1.1.0",
     "sharp": "^0.18.4",

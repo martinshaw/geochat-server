@@ -12,5 +12,12 @@ $(document).ready (() =>{
 	});
 
 
+
+
+	// Redirect to Sign-In screen
+	if (document.location.pathname != "/signin.html" && Cookies.get('gc-session_key') == undefined){
+		document.location = "/signin.html";
+	}
+
 	
 })
