@@ -2,8 +2,29 @@
 const resFormat = require("../utils/formatting.js");
 const l = require("../utils/logging.js");
 
+
+
+	// getAllUsers: (req, res) => {
+
+ //  		global.connection.query('SELECT * from users', function (error, results, fields) {
+	// 		if(error){
+	// 			l.error(error);
+ //  				res.json(resFormat.statusError(500, "Database Error :("));  
+
+	// 		} else {
+	// 			l.console("Attempting to access all \'users\' records...");
+				
+ //  				res.json(resFormat.statusOk(results));  
+
+	// 		}
+	// 	});
+		
+	// },
+
+
 //
 module.exports = {
+
 	getAllUsers: (req, res) => {
 
   		global.connection.query('SELECT * from users', function (error, results, fields) {
@@ -18,6 +39,7 @@ module.exports = {
 
 			}
 		});
+
 	},
 	getUserById: (req, res) => {
 
@@ -43,6 +65,5 @@ module.exports = {
 
 		});
 	}
-
 
 }

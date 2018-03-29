@@ -44,7 +44,8 @@ module.exports = {
 			user_id: (user_data.id),
 			session_key: generateNewSessionKey(),
 			next: generateNewNextNounce(),
-			timeout: calculateTimeoutEpoch()
+			timeout: calculateTimeoutEpoch(),
+			active: true
 		};
 
 		global.connection.query('INSERT INTO sessions SET ?', session, function (error, results, fields) {

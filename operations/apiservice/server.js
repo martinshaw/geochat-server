@@ -48,6 +48,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 
 
+// Express Server Status
+
+
+
 // Routers
 app.use('/api/v0.1', welcomeRouter);
 app.use('/api/v0.1/auth', authRouter);
