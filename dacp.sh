@@ -7,4 +7,7 @@ git add --all;
 git commit -m "$1";
 git push -u origin master;
 
-echo "\n\nDONE!\n";
+echo " ";
+echo " ";
+echo "DONE!";
+echo " ";
