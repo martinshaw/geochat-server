@@ -15,7 +15,7 @@ $(document).ready (() =>{
 
 
 	// Redirect to Sign-In screen
-	if (document.location.pathname != "/signin.html" && Cookies.get('gc-session_key') == undefined){
+	if (document.location.pathname != "/signin.html" && (Cookies.get('gc-host') == undefined || Cookies.get('gc-skey') == undefined)){
 		document.location = "/signin.html";
 	}
 

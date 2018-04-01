@@ -22,6 +22,9 @@ const welcomeRouter = global.welcomeRouter = require("./routers/welcome.js");
 const authRouter = global.authRouter = require("./routers/auth.js");
 const usersRouter = global.usersRouter = require("./routers/users.js");
 const sessionsRouter = global.sessionsRouter = require("./routers/sessions.js");
+const messagesRouter = global.messagesRouter = require("./routers/messages.js");
+
+
 
 // Require set of Before/After middleware filters
 const filters = require("./controllers/filters.js");
@@ -59,6 +62,15 @@ connection.connect();
 
 
 
+// Set a custom X-Powered-By header (for obfuscative security)
+//   and other catch-all routes type modifications
+app.use(function (req, res, next) {
+	res.setHeader( 'X-Powered-By', 'GeoChat API Service Server' );
+	next();
+});
+
+
+
 // JSON formatting in Request Body
 app.use(bodyParser.urlencoded({ extended: false }));
 
@@ -74,6 +86,7 @@ app.use('/api/v0.1', welcomeRouter);
 app.use('/api/v0.1/auth', authRouter);
 app.use('/api/v0.1/users', usersRouter);
 app.use('/api/v0.1/sessions', sessionsRouter);
+app.use('/api/v0.1/messages', messagesRouter);
 
 
 
@@ -84,6 +97,7 @@ var server = app.listen(_port, () => {
 	require('./utils/displayRoutesTable.js')('/api/v0.1/auth', authRouter.stack);
 	require('./utils/displayRoutesTable.js')('/api/v0.1/users', usersRouter.stack);
 	require('./utils/displayRoutesTable.js')('/api/v0.1/sessions', sessionsRouter.stack);
+	require('./utils/displayRoutesTable.js')('/api/v0.1/messages', messagesRouter.stack);
 	
 });
 

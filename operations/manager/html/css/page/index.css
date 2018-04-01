@@ -1,0 +1,10 @@
+.gc-serverstatus{
+	min-height: 350px;
+}
+
+.gc-ss-item{
+	text-align: center;
+}
+.gc-ss-item .label{
+	font-weight: bold;
+}

@@ -3,37 +3,17 @@ const resFormat = require("../utils/formatting.js");
 const l = require("../utils/logging.js");
 
 
-
-	// getAllUsers: (req, res) => {
-
- //  		global.connection.query('SELECT * from users', function (error, results, fields) {
-	// 		if(error){
-	// 			l.error(error);
- //  				res.json(resFormat.statusError(500, "Database Error :("));  
-
-	// 		} else {
-	// 			l.console("Attempting to access all \'users\' records...");
-				
- //  				res.json(resFormat.statusOk(results));  
-
-	// 		}
-	// 	});
-		
-	// },
-
-
-//
 module.exports = {
 
-	getAllUsers: (req, res) => {
+	getAllMessages: (req, res) => {
 
-  		global.connection.query('SELECT * from users', function (error, results, fields) {
+  		global.connection.query('SELECT * from messages', function (error, results, fields) {
 			if(error){
 				l.error(error);
   				res.json(resFormat.statusError(500, "Database Error :("));  
 
 			} else {
-				l.console("Attempting to access all \'users\' records...");
+				l.console("Attempting to access all \'messages\' records...");
 				
   				res.json(resFormat.statusOk(results));  
 
@@ -42,11 +22,11 @@ module.exports = {
 
 	},
 
-	getUserById: (req, res) => {
+	getMessageById: (req, res) => {
 
 		let _id = req.params.id;
  
-  		global.connection.query(`SELECT * from users where id=${_id} LIMIT 1`, function (error, results, fields) {
+  		global.connection.query(`SELECT * from messages where id=${_id} LIMIT 1`, function (error, results, fields) {
 
   			if(results == [] || results[0] == null || results[0] == undefined){
   				error = `There are no records with the requested id ! ${_id}`;
@@ -59,7 +39,7 @@ module.exports = {
 				l.error(error);
   				res.json(resFormat.statusError(500, "Database Error :("));  
 			} else {
-				l.console(`Attempting to access \'users\' record by id ${_id} ...`);
+				l.console(`Attempting to access \'messages\' record by id ${_id} ...`);
 				
   				res.json(resFormat.statusOk(results[0]));  
 			}

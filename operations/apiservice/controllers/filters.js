@@ -27,7 +27,7 @@ module.exports = {
 				if (error) {
 
 					// ... Internal database error, give casual message to user and record technical error details in server log!
-					l.error(error);
+					l.error(error);   
 					res.send(resFormat.statusError(500, "Database error :("));  
 
 				} else if (results == "") {
@@ -42,7 +42,33 @@ module.exports = {
 					// ... Session is contained in database
 					l.console(`Attempting to retrieve the \'session\' record ...`);
 
-					next();
+
+					// Check if the session key has expired its timeout quota ...
+					session_epoch = results[0].timeout;
+					current_epoch = (Math.floor((new Date).getTime()/1000));
+
+					if (session_epoch < current_epoch) {
+
+						global.connection.query(`update sessions set active = false where session_key = '${_skey}'`, function (error, results, fields) {
+
+							if(error){
+								l.error(error);
+				  				res.send(resFormat.statusError(500, "Database error :("));  
+
+							} else {
+
+								l.console(`Session key is expired. ${_skey} has been successfully signed out!`);
+								res.send(resFormat.statusError(500, `Session key is expired. You have been signed out!`));
+
+							}
+
+						});
+
+					} else {
+
+						next();
+
+					}
 
 				}
 				
