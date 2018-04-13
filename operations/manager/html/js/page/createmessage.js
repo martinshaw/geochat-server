@@ -109,12 +109,41 @@ var recipient_map = "";
 
 
 
-var setEventListeners = () => {
+var doOriginLocationSearch = (e) => {
 
-	$("input[name='origin_lat']").keyup(() => {
-		origin_map.setCenter(parseFloat($("input[name='origin_lat']").val())==NaN ? 0 : parseFloat($("input[name='origin_lat']").val()), origin_map.getCenter().lng());
-		// alert(origin_map.getCenter().lat());
-	})
+	$ele = $(e.target);
+
+	GMaps.geocode({
+		address: $ele.val(),
+		callback: function(results, status) {
+			if (status == 'OK') {
+				var latlng = results[0].geometry.location;
+				origin_map.setCenter(latlng.lat(), latlng.lng());
+
+				$("input[name='origin_lat']").val(latlng.lat());
+				$("input[name='origin_long']").val(latlng.lng());
+			}
+		}
+	});
+
+}
+
+var doRecipientLocationSearch = (e) => {
+	
+	$ele = $(e.target);
+
+	GMaps.geocode({
+		address: $ele.val(),
+		callback: function(results, status) {
+			if (status == 'OK') {
+				var latlng = results[0].geometry.location;
+				recipient_map.setCenter(latlng.lat(), latlng.lng());
+
+				$("input[name='recipient_lat']").val(latlng.lat());
+				$("input[name='recipient_long']").val(latlng.lng());
+			}
+		}
+	});
 
 }
 
@@ -122,22 +151,38 @@ var setEventListeners = () => {
 
 
 
-$(document).ready(() => {
+var updateOriginMapTextboxes = (e) => {
+	$("input[name='origin_lat']").val(e.latLng.lat());
+	$("input[name='origin_long']").val(e.latLng.lng());
+}
 
-	// getAndDisplayMessagesData();
+var updateRecipientMapTextboxes = (e) => {
+	$("input[name='recipient_lat']").val(e.latLng.lat());
+	$("input[name='recipient_long']").val(e.latLng.lng());
+}
+
+
+
+
+
+$(document).ready(() => {
 	 
 	origin_map = new GMaps({
 		div: '#map_origin',
-		lat: -12.043333,
-		lng: -77.028333
+		lat: 53.4807593,
+		lng: -2.2426305,
+		click: updateOriginMapTextboxes
 	}); 
 
 	recipient_map = new GMaps({
 		div: '#map_recipient',
-		lat: -12.043333,
-		lng: -77.028333
+		lat: 53.4807593,
+		lng: -2.2426305,
+		click: updateRecipientMapTextboxes
 	});
 
-	setEventListeners();
+
+	$("input[name='origin_search']").keyup(doOriginLocationSearch);
+	$("input[name='recipient_search']").keyup(doRecipientLocationSearch);
 
 })

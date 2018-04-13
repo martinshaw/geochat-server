@@ -78,44 +78,62 @@
 
 					<h3 class="ui top attached header">Create Message</h3>
 
-					<div class="ui attached raised segment">
-					
 						<form class="ui form">
 
-							<div class="ui grid">
-								<div class="ui eight wide column">
-									<div id="map_origin"></div>
-									<input placeholder="Origin Latitude" style="width: 50%; float: left" type="text" name="origin_lat"/>
-									<input placeholder="Origin Longitude" style="width: 50%; float: left" type="text" name="origin_long"/>
+							<div class="ui attached segment">
+							
+								<div class="two fields">
+
+									<div class="ui field">
+										<label>Origin Location</label>
+										<div id="map_origin"></div>
+										<input placeholder="Search for Origin Location" style="width: 100%; float: left" type="text" name="origin_search"/>
+										<input readonly placeholder="Origin Latitude" style="width: 50%; float: left" type="text" name="origin_lat"/>
+										<input readonly placeholder="Origin Longitude" style="width: 50%; float: left" type="text" name="origin_long"/>
+									</div>
+
+									<div class="ui field">
+										<label>Recipient Location</label>
+										<div id="map_recipient"></div>
+										<input placeholder="Search for Recipient Location" style="width: 100%; float: left" type="text" name="recipient_search"/>
+										<input readonly placeholder="Recipient Latitude" style="width: 50%; float: left" type="text" name="recipient_lat"/>
+										<input readonly placeholder="Recipient Longitude" style="width: 50%; float: left" type="text" name="recipient_long"/>
+									</div>
+
 								</div>
-								<div class="ui eight wide column">
-									<div id="map_recipient"></div>
-									<input placeholder="Recipient Latitude" style="width: 50%; float: left" type="text" name="recipient_lat"/>
-									<input placeholder="Recipient Longitude" style="width: 50%; float: left" type="text" name="recipient_long"/>
-								</div>
+
 							</div>
 
-							<div class="field">
-								<label>First Name</label>
-								<input type="text" name="first-name" placeholder="First Name" autocomplete='given-name'>
-							</div>
-							<div class="field">
-								<label>Last Name</label>
-								<input type="text" name="last-name" placeholder="Last Name" autocomplete='family-name'>
-							</div>
-							<div class="field">
-								<div class="ui checkbox">
-									<input type="checkbox" tabindex="0" class="hidden">
-									<label>I agree to the Terms and Conditions</label>
+							<div class="ui attached segment">
+
+								<div class="two fields">
+
+									<div class="field">
+										<label>User ID</label>
+										<input type="number" name="user_id" placeholder="User ID"/>
+									</div>
+
+									<div class="field">
+										<label>Session ID</label>
+										<input type="number" name="session_id" placeholder="Session ID"/>
+									</div>
+
 								</div>
+
+								<div class="field">
+									<div class="ui checkbox">
+										<input type="checkbox" tabindex="0" class="hidden">
+										<label>I agree to the Terms and Conditions</label>
+									</div>
+								</div>
+								<button class="ui button" type="submit">Submit</button>
+
+
+
+
 							</div>
-							<button class="ui button" type="submit">Submit</button>
-
-
 
 						</form>
-
-					</div>
 
 				</div>
 
