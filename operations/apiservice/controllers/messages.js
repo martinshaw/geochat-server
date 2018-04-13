@@ -7,7 +7,7 @@ module.exports = {
 
 	getAllMessages: (req, res) => {
 
-  		global.connection.query('SELECT * from messages', function (error, results, fields) {
+  		global.connection.query('SELECT messages.*, users.first_name, users.last_name from messages inner join users where messages.user_id = users.id', function (error, results, fields) {
 			if(error){
 				l.error(error);
   				res.json(resFormat.statusError(500, "Database Error :("));  

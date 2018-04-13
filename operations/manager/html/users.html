@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+	<head>
+		<title>Users - GeoChat Manager</title>
+
+		<link href='/css/normalize.css' rel='stylesheet' type='text/css' />
+		<script src="/js/jquery.js"></script>
+
+		<link rel="stylesheet" href="/vendors/Semantic-UI/dist/semantic.min.css">
+		<script src="/vendors/Semantic-UI/dist/semantic.min.js"></script>
+		<script src="/vendors/js.cookie.js"></script>
+
+		<link rel="stylesheet" href="css/global.css">
+		<link rel="stylesheet" href="css/page/users.css">
+
+		<script src="js/global.js"></script>
+		<script src="js/page/users.js"></script>
+
+
+	</head>
+	<body>
+
+		<div class="ui menu">
+			<a href="/index.html">
+				<div class="header item">
+					<img src="/img/logo.png" alt="">
+					&nbsp;
+					GeoChat Server Manager
+				</div>
+			</a>
+			<a class="item" href="/index.html">Link</a>
+			<a class="item" href="globe.html">Globe View</a>
+			<div class="ui dropdown item">
+				Manage...
+				<i class="dropdown icon"></i>
+				<div class="menu">
+					<div class=" active item">API Accounts</div>
+					<div class="item">Another Action</div>
+					<div class="divider"></div>
+					<div class="item">Separated Link</div>
+					<div class="divider"></div>
+					<div class="item" href="">QR Code Generator</div>
+				</div>
+			</div>
+			<div class="ui dropdown item">
+				Tools
+				<i class="dropdown icon"></i>
+				<div class="menu">
+					<div class="item">Action</div>
+					<div class="item">Another Action</div>
+					<div class="divider"></div>
+					<div class="item">Separated Link</div>
+					<div class="divider"></div>
+					<div class="item" href="">QR Code Generator</div>
+				</div>
+			</div>
+			<div class="right menu">
+				<div class="item">
+					<div class="ui action left icon input">
+						<i class="search icon"></i>
+						<input type="text" placeholder="Search">
+						<button class="ui button">Search All</button>
+					</div>
+				</div>
+				<a class="item" href="/signout.html">Sign Out</a>
+			</div>
+		</div>
+
+
+		
+		<div class="">
+
+			<div class="ui grid">
+
+
+				<div class="eighteen wide column loading gc-userscont">
+
+					<h3 class="ui top attached header">Users</h3>
+
+					<div class="ui attached raised segment">
+					
+						<table class="ui compact celled definition table">
+							<thead>
+								<tr>
+
+									<th></th>
+									<th>User ID</th>
+									<th>First Name</th>
+									<th>Last Name</th>
+									<th>E-mail Address</th>
+									<th>Password</th>
+									<th>Created At</th>
+									<th>Updated At</th>
+									<th>Active? </th>
+
+								</tr>
+							</thead>
+							<tbody>
+								
+								
+
+							</tbody>
+							<tfoot class="full-width">
+								<tr>
+									<th>
+										<!-- <div class="ui small red button"> -->
+											<!-- Sign out all ! -->
+										<!-- </div> -->
+									</th>
+									<th colspan="12">
+									</th>
+								</tr>
+							</tfoot>
+						</table>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+
+				
+	</body>
+</html>
