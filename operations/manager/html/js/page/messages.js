@@ -2,7 +2,11 @@
 var in_host = Cookies.get("gc-host");
 var in_skey = Cookies.get("gc-skey");
 
+var messages = [];
+
 var getAndDisplayMessagesData = () => {
+
+	messages = {};
 
 	var settings = {
 		"async": true,
@@ -27,6 +31,8 @@ var getAndDisplayMessagesData = () => {
 
 			for (var i = 0; i < response.data.length; i++){
 				let message = (response.data[i]);
+
+				messages[messages.id] = message;
 			
 				let template = `
 					<tr>
@@ -35,7 +41,7 @@ var getAndDisplayMessagesData = () => {
 								${(message.active==1)?'<button class="ui button " onclick="delete(\''+message.id+'\');">Delete</button>':''}
 							</div>
 						</td>
-						<td>${message.id}</td>
+						<td><a onclick="locateOnMap(${message.id});" href="#">${message.id}</a></td>
 						<td><a href="globe.html?lat=${message.origin_lat}&long=${message.origin_long}">${message.origin_lat}, ${message.origin_long}</a></td>
 						<td><a href="globe.html?lat=${message.recipient_lat}&long=${message.recipient_long}">${message.recipient_lat}, ${message.recipient_long}</a></td>
 						<td>${message.user_id}</td>

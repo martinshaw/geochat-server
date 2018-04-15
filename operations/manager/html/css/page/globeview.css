@@ -7,8 +7,17 @@
 	opacity: 0;
 }
 
-.we-pp-content{
+.we-pp-wrapper{
+	background: gray !important;
+    color: white !important;
+    -webkit-box-shadow:0 1px 14px #171717 !important;
+    -moz-box-shadow:0 1px 14px #171717 !important;
+    box-shadow:0 1px 14px #171717 !important;
+    border-radius: 5px !important;
+}
+.we-pp-content, .we-pp-content *{
 	width: 100% !important;
     word-wrap: break-word !important;
     padding-right: 35px !important;
+	font-family: Courier, Courier New, monospace !important;
 }

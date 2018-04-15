@@ -14,6 +14,7 @@ var router = express.Router();
 router.get('/', filters.requiresSessionKey, messagesController.getAllMessages);
 router.get('/:id([0-9]+)', filters.requiresSessionKey, messagesController.getMessageById);
 router.post('/', filters.requiresSessionKey, messagesController.createMessage);
+router.delete('/:id([0-9]+)', filters.requiresSessionKey, messagesController.deleteMessage);
 
 
 module.exports = router;

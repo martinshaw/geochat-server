@@ -27,7 +27,7 @@ module.exports = {
 
 	getAllUsers: (req, res) => {
 
-  		global.connection.query('SELECT * from users', function (error, results, fields) {
+  		global.connection.query('SELECT * from users where active = 1', function (error, results, fields) {
 			if(error){
 				l.error(error);
   				res.json(resFormat.statusError(500, "Database Error :("));  
