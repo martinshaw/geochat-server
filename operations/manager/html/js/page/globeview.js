@@ -56,18 +56,7 @@ var getMessagesFromAPI = (next) => {
 		// Load server status data
 		if (response.error_msg == null) {
 
-			for (var i = 0; i < response.data.length; i++){
-				let message = (response.data[i]);
-			
-				messages.push({
-					message: message.contents,
-					latlong: [message.origin_lat, message.origin_long],
-					author: message.user_id + " ("+message.first_name+" "+message.last_name+")"
-				})
-
-			}
-
-			next(messages);
+			next(response.data);
 
 
 		} else {
@@ -101,11 +90,25 @@ function initialize() {
 	tick = setInterval(function (){
 		getMessagesFromAPI(function(msgs) {
 			for(var i = 0; i < msgs.length; i++){
-				var marker = WE.marker(msgs[i].latlong).addTo(earth)
-				marker.bindPopup('<b>'+msgs[i].message+'</b> &nbsp <i>'+msgs[i].author+'</i>');
+
+				console.log(msgs[i]);
+
+				let origin = [msgs[i].origin_lat, msgs[i].origin_long];
+				let recipient = [msgs[i].recipient_lat, msgs[i].recipient_long];
+				let name = msgs[i].user_id + " (" + msgs[i].first_name + " " + msgs[i].last_name + ")";
+
+				let path_origin_recipient = WE.polygon([origin, recipient, origin], {
+					weight: 5,
+					opacity: 0.7		
+				});
+       			path_origin_recipient.addTo(earth);
+
+				let marker = WE.marker(recipient).addTo(earth);
+				marker.bindPopup('<b>'+msgs[i].contents+'</b> &nbsp <i>'+name+'</i><p>'+JSON.stringify(msgs[i])+'</p>');
+
 			}
 		});
-	}, 4000);
+	}, 5000);
 
 	
 	

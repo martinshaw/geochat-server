@@ -118,7 +118,7 @@ module.exports = {
   				res.json(resFormat.statusError(500, "Database Error :("));  
   			}
 
-			if(error){
+			else if(error){
 				l.error(error);
   				res.json(resFormat.statusError(500, "Database Error :("));  
 

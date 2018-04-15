@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 	<head>
-		<title>Messages - GeoChat Manager</title>
+		<title>Create Message - GeoChat Manager</title>
 
 		<link href='/css/normalize.css' rel='stylesheet' type='text/css' />
 		<script src="/js/jquery.js"></script>
@@ -102,9 +102,6 @@
 
 								</div>
 
-							</div>
-
-							<div class="ui attached segment">
 
 								<div class="two fields">
 
@@ -120,13 +117,58 @@
 
 								</div>
 
-								<div class="field">
-									<div class="ui checkbox">
-										<input type="checkbox" tabindex="0" class="hidden">
-										<label>I agree to the Terms and Conditions</label>
+								<div class="two fields">
+
+									<div class="field">
+										<label>Message is sent anonymausly?</label>
+										<div class="ui selection dropdown">
+											<input type="hidden" value="false" name="is_anonymaus">
+											<i class="dropdown icon"></i>
+											<div class="default text">No</div>
+											<div class="menu">
+												<div class="item" data-value="false">No</div>
+												<div class="item" data-value="true">Yes</div>
+											</div>
+										</div>
 									</div>
+
+									<div class="field">
+										<label>Message Type</label>
+										<div class="ui selection dropdown">
+											<input type="hidden" value="TEXT" name="message_type">
+											<i class="dropdown icon"></i>
+											<div class="default text">TEXT</div>
+											<div class="menu">
+												<div class="item" data-value="TEXT">TEXT</div>
+												<div class="item" data-value="IMAGE">IMAGE</div>
+												<div class="item" data-value="VIDEO">VIDEO</div>
+												<div class="item" data-value="AUDIO">AUDIO</div>
+												<div class="item" data-value="EMOJI">EMOJI</div>
+												<div class="item" data-value="GIF">GIF</div>
+												<div class="item" data-value="FILE">FILE</div>
+												<div class="item" data-value="LOCATION">LOCATION</div>
+												<div class="item" data-value="CONTACT">CONTACT</div>
+											</div>
+										</div>
+									</div>
+
 								</div>
-								<button class="ui button" type="submit">Submit</button>
+
+								<div class="two fields">
+									
+									<div class="field">
+										<label>Message Contents</label>
+										<textarea name="contents" id="contents" rows="5"></textarea>
+									</div>
+
+									<div class="field">
+										<label>Message Contents (Extra)</label>
+										<textarea name="contents_extra" id="contents_extra" rows="5"></textarea>
+									</div>
+
+								</div>
+
+								<button class="ui button sendMessage">Send Message &rarr;</button>
 
 
 

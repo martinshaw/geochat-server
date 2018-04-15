@@ -6,3 +6,9 @@
 	display: none;
 	opacity: 0;
 }
+
+.we-pp-content{
+	width: 100% !important;
+    word-wrap: break-word !important;
+    padding-right: 35px !important;
+}
