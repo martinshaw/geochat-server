@@ -13,7 +13,7 @@ var router = express.Router();
 // Define Express routes
 router.post('/register', authController.register);
 router.get('/signin', authController.signin);
-router.get('/signout', filters.requiresSessionKey, authController.signout);
+router.get('/signout', filters.requiresSessionKeyInHeader, authController.signout);
 
 
 module.exports = router;

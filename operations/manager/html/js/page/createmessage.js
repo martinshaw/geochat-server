@@ -28,7 +28,7 @@ var sendMessage = (e) => {
 		"crossDomain": true,
 		"url": `http://${in_host}/api/v0.1/messages`,
 		"method": "POST",
-		"headers": {},
+		"headers": {"Geochat-Session-Key": in_skey},
 		"data": {
 			origin_lat:$("input[name='origin_lat']").val(),
 			origin_long:$("input[name='origin_long']").val(),
@@ -39,8 +39,7 @@ var sendMessage = (e) => {
 			is_anonymaus:$("input[name='is_anonymaus']").val(),
 			message_type:$("input[name='message_type']").val(),
 			contents:$("textarea[name='contents']").val(),
-			contents_extra:$("textarea[name='contents_extra']").val(),
-			_skey: in_skey
+			contents_extra:$("textarea[name='contents_extra']").val()
 		},	
 		"error": function (xhr, ajaxOptions, thrownError){
 			alert("404 - Specified host cannot be found!");
@@ -72,14 +71,14 @@ var sendMessage = (e) => {
 }
 
 
-// var delete = (session_key) => {
+// var delete = (session_key, message_id) => {
 
 // 	var settings = {
 // 		"async": true,
 // 		"crossDomain": true,
-// 		"url": `http://${in_host}/api/v0.1/auth/signout?_skey=${session_key}`,
+// 		"url": `http://${in_host}/api/v0.1/messages/${message_id}`,
 // 		"method": "GET",
-// 		"headers": {},	
+//		"headers": {"Geochat-Session-Key": in_skey},
 // 		"data": {},	
 // 		"error": function (xhr, ajaxOptions, thrownError){
 // 			alert("404 - Specified host cannot be found!");

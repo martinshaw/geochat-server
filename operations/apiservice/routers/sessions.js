@@ -11,9 +11,9 @@ const filters = require("../controllers/filters.js");
 var router = express.Router();
 
 // Define Express routes
-router.get('/', filters.requiresSessionKey, sessionsController.getAllSessions);
-router.get('/:id([0-9]+)', filters.requiresSessionKey, sessionsController.getSessionById);
-router.get('/:key([0-9a-zA-Z|-]*)', filters.requiresSessionKey, sessionsController.getSessionByKey);
+router.get('/', filters.requiresSessionKeyInHeader, sessionsController.getAllSessions);
+router.get('/:id([0-9]+)', filters.requiresSessionKeyInHeader, sessionsController.getSessionById);
+router.get('/:key([0-9a-zA-Z|-]*)', filters.requiresSessionKeyInHeader, sessionsController.getSessionByKey);
 
 
 module.exports = router;

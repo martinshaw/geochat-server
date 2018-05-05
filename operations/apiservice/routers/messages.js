@@ -11,10 +11,10 @@ const filters = require("../controllers/filters.js");
 var router = express.Router();	
 
 // Define Express routes
-router.get('/', filters.requiresSessionKey, messagesController.getAllMessages);
-router.get('/:id([0-9]+)', filters.requiresSessionKey, messagesController.getMessageById);
-router.post('/', filters.requiresSessionKey, messagesController.createMessage);
-router.delete('/:id([0-9]+)', filters.requiresSessionKey, messagesController.deleteMessage);
+router.get('/', filters.requiresSessionKeyInHeader, messagesController.getAllMessages);
+router.get('/:id([0-9]+)', filters.requiresSessionKeyInHeader, messagesController.getMessageById);
+router.post('/', filters.requiresSessionKeyInHeader, messagesController.createMessage);
+router.delete('/:id([0-9]+)', filters.requiresSessionKeyInHeader, messagesController.deleteMessage);
 
 
 module.exports = router;

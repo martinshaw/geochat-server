@@ -7,9 +7,9 @@ var getAndDisplayServerStatus = () => {
 	var settings = {
 		"async": true,
 		"crossDomain": true,
-		"url": `http://${in_host}/status?_skey=${in_skey}`,
+		"url": `http://${in_host}/status`,
 		"method": "GET",
-		"headers": {},
+		"headers": {"Geochat-Session-Key": in_skey},
 		"data": {},	
 		"error": function (xhr, ajaxOptions, thrownError){
 			alert("404 - Specified host cannot be found!");

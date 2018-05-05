@@ -77,7 +77,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 
 // Express Server Status
-app.use('/status', filters.requiresSessionKey, serverStatus(app));
+app.use('/status', filters.requiresSessionKeyInHeader, serverStatus(app));
 
 
 

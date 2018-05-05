@@ -164,14 +164,7 @@ module.exports = {
  
   		global.connection.query(`update messages set active = false where id = ${_id}`, function (error, results, fields) {
 
-  			if(results == [] || results[0] == null || results[0] == undefined){
-  				error = `There are no records with the requested id ! ${_id}`;
-				l.error(error);
-  				res.json(resFormat.statusError(500, "Database Error :("));  
-  				return true;
-  			}
-
-			else if(error){
+			if(error){
 				l.error(error);
   				res.json(resFormat.statusError(500, "Database Error :("));  
 			}
@@ -179,7 +172,7 @@ module.exports = {
 			else {
 				l.console(`Attempting to delete \'messages\' record by id ${_id} ...`);
 				
-  				res.json(resFormat.statusOk(results[0]));  
+  				res.json(resFormat.statusOk("Message Deleted !"));  
 			}
 
 		});

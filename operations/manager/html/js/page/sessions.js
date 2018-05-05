@@ -7,9 +7,9 @@ var getAndDisplaySessionsData = () => {
 	var settings = {
 		"async": true,
 		"crossDomain": true,
-		"url": `http://${in_host}/api/v0.1/sessions?_skey=${in_skey}`,
+		"url": `http://${in_host}/api/v0.1/sessions`,
 		"method": "GET",
-		"headers": {},
+		"headers": {"Geochat-Session-Key": in_skey},
 		"data": {},	
 		"error": function (xhr, ajaxOptions, thrownError){
 			alert("404 - Specified host cannot be found!");
@@ -67,9 +67,9 @@ var signout = (session_key) => {
 	var settings = {
 		"async": true,
 		"crossDomain": true,
-		"url": `http://${in_host}/api/v0.1/auth/signout?_skey=${session_key}`,
+		"url": `http://${in_host}/api/v0.1/auth/signout`,
 		"method": "GET",
-		"headers": {},	
+		"headers": {"Geochat-Session-Key": in_skey},
 		"data": {},	
 		"error": function (xhr, ajaxOptions, thrownError){
 			alert("404 - Specified host cannot be found!");

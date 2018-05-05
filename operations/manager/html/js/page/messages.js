@@ -11,9 +11,9 @@ var getAndDisplayMessagesData = () => {
 	var settings = {
 		"async": true,
 		"crossDomain": true,
-		"url": `http://${in_host}/api/v0.1/messages?_skey=${in_skey}`,
+		"url": `http://${in_host}/api/v0.1/messages`,
 		"method": "GET",
-		"headers": {},
+		"headers": {"Geochat-Session-Key": in_skey},
 		"data": {},	
 		"error": function (xhr, ajaxOptions, thrownError){
 			alert("404 - Specified host cannot be found!");
@@ -73,14 +73,14 @@ var getAndDisplayMessagesData = () => {
 }
 
 
-// var delete = (session_key) => {
+// var delete = (session_key, message_id) => {
 
 // 	var settings = {
 // 		"async": true,
 // 		"crossDomain": true,
-// 		"url": `http://${in_host}/api/v0.1/auth/signout?_skey=${session_key}`,
-// 		"method": "GET",
-// 		"headers": {},	
+// 		"url": `http://${in_host}/api/v0.1/messages/${message_id}`,
+// 		"method": "DELETE",
+// 		"headers": {"Geochat-Session-Key": in_skey},
 // 		"data": {},	
 // 		"error": function (xhr, ajaxOptions, thrownError){
 // 			alert("404 - Specified host cannot be found!");
