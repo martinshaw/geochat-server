@@ -16,5 +16,5 @@ router.get('/:id([0-9]+)', filters.requiresSessionKeyInHeader, messagesControlle
 router.post('/', filters.requiresSessionKeyInHeader, messagesController.createMessage);
 router.delete('/:id([0-9]+)', filters.requiresSessionKeyInHeader, messagesController.deleteMessage);
 
-
+ 
 module.exports = router;
