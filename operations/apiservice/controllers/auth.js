@@ -120,10 +120,10 @@ module.exports = {
 										} else {
 
 							  				res.send(
-							  					resFormat.statusOk({
+							  					resFormat.statusOk([{
 								  					user: results[0],
 								  					session: session_data[0]
-								  				})
+								  				}])
 							  				);
 
 							  			}

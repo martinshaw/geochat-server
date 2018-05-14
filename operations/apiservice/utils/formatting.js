@@ -10,7 +10,8 @@ module.exports = {
 	statusError: (statusCode, errorMessage) => {
 		return {
 			"status": statusCode,
-			"error_msg": errorMessage
+			"error_msg": errorMessage,
+			"data": []
 		}
 	}
 
