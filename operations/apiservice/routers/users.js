@@ -13,6 +13,7 @@ var router = express.Router();
 // Define Express routes
 router.get('/', filters.requiresSessionKeyInHeader, usersController.getAllUsers);
 router.get('/:id([0-9]+)', filters.requiresSessionKeyInHeader, usersController.getUserById);
+router.get('/:key([0-9a-zA-Z|-]*)', filters.requiresSessionKeyInHeader, usersController.getUserBySessionKey);
 
 
 module.exports = router;

@@ -65,6 +65,31 @@ module.exports = {
 			}
 
 		});
+	},
+
+	getUserBySessionKey: (req, res) => {
+
+		let _key = req.params.key;
+ 
+  		global.connection.query(`SELECT users.* from sessions join users where session_key='${_key}' and users.id = sessions.user_id LIMIT 1`, function (error, results, fields) {
+
+  			if(results == [] || results == undefined){
+  				error = `There are no records with the requested key ! ${_id}`;
+				l.error(error);
+  				res.json(resFormat.statusError(500, "Database Error :("));  
+  				return true;
+  			}
+
+			if(error){
+				l.error(error);
+  				res.json(resFormat.statusError(500, "Database Error :("));  
+			} else {
+				l.console(`Attempting to access \'users\' record by session key ${_key} ...`);
+				
+  				res.json(resFormat.statusOk(results[0]));  
+			}
+
+		});
 	}
 
 }
