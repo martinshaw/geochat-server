@@ -47,6 +47,31 @@ module.exports = {
 		});
 	},
 
+	getMessageByUserSessionKey: (req, res) => {
+
+		let _key = req.params.key;
+ 
+  		global.connection.query(`SELECT * from messages where id=${_id} LIMIT 1`, function (error, results, fields) {
+
+  			if(results == [] || results[0] == null || results[0] == undefined){
+  				error = `There are no records with the requested id ! ${_id}`;
+				l.error(error);
+  				res.json(resFormat.statusError(500, "Database Error :("));  
+  				return true;
+  			}
+
+			if(error){
+				l.error(error);
+  				res.json(resFormat.statusError(500, "Database Error :("));  
+			} else {
+				l.console(`Attempting to access \'messages\' record by id ${_id} ...`);
+				
+  				res.json(resFormat.statusOk(results[0]));  
+			}
+
+		});
+	},
+
 	createMessage: (req, res) => {
 
 		// Validate the existance and validity of required input parameters
