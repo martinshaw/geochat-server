@@ -13,7 +13,8 @@ var router = express.Router();
 // Define Express routes
 router.get('/', filters.requiresSessionKeyInHeader, messagesController.getAllMessages);
 router.get('/:id([0-9]+)', filters.requiresSessionKeyInHeader, messagesController.getMessageById);
-router.post('/', filters.requiresSessionKeyInHeader, messagesController.createMessage);
+router.get('/:id([0-9]+)', filters.requiresSessionKeyInHeader, messagesController.getMessageById);
+router.get('/user/:key([0-9a-zA-Z|-]*)', filters.requiresSessionKeyInHeader, messagesController.getMessagesByUserSessionKey);
 router.delete('/:id([0-9]+)', filters.requiresSessionKeyInHeader, messagesController.deleteMessage);
 
  

@@ -47,14 +47,14 @@ module.exports = {
 		});
 	},
 
-	getMessageByUserSessionKey: (req, res) => {
+	getMessagesByUserSessionKey: (req, res) => {
 
 		let _key = req.params.key;
  
-  		global.connection.query(`SELECT * from messages where id=${_id} LIMIT 1`, function (error, results, fields) {
+  		global.connection.query(`select messages.* from messages join users join sessions where sessions.session_key="${_key}" and messages.user_id = sessions.user_id and users.id = sessions.user_id and messages.active = 1;`, function (error, results, fields) {
 
   			if(results == [] || results[0] == null || results[0] == undefined){
-  				error = `There are no records with the requested id ! ${_id}`;
+  				error = `There are no records with the requested key ! ${_key}`;
 				l.error(error);
   				res.json(resFormat.statusError(500, "Database Error :("));  
   				return true;
@@ -64,9 +64,9 @@ module.exports = {
 				l.error(error);
   				res.json(resFormat.statusError(500, "Database Error :("));  
 			} else {
-				l.console(`Attempting to access \'messages\' record by id ${_id} ...`);
+				l.console(`Attempting to access \'messages\' created by user with key ${_key} ...`);
 				
-  				res.json(resFormat.statusOk(results[0]));  
+  				res.json(resFormat.statusOk(results));  
 			}
 
 		});
